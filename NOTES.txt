@@ -1,0 +1,23 @@
+INSTALLED TORCH
+ # in a terminal, run the commands WITHOUT sudo
+ git clone https://github.com/torch/distro.git ~/torch --recursive
+ cd ~/torch; bash install-deps;
+ ./install.sh
+
+ADD TO PATH
+ export PATH=$PATH:/home/d/torch/install/bin/
+
+INSTALL CUDNN5 FROM DEB FILES (NVIDIA WEBSITE)
+
+INSTALL PIX2PIX
+
+dependencies
+ luarocks install nngraph
+ luarocks install https://raw.githubusercontent.com/szym/display/master/display-scm-0.rockspec
+
+download dataset
+ bash ./datasets/download_dataset.sh facades
+
+train model
+ DATA_ROOT=./datasets/facades name=facades_generation which_direction=BtoA th train.lua
+
